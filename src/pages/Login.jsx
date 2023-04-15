@@ -32,14 +32,14 @@ const Login = () => {
         <span className="title">Login</span>
         <form onSubmit={handleSubmit} >
 
-          <input type="email" placeholder='email' />
-          <input type="password" placeholder='password' />
+          <input type="email" placeholder='Email' />
+          <input type="password" placeholder='Password' />
 
 
-          <button >Sign in</button>
-          {err && <span>Somthing went wrong</span>}
+          <button >Login</button>
+          {err && <span>Something Went Wrong !</span>}
         </form>
-        <p>YO don't have an account ? <Link to='/register'>Register</Link></p>
+        <p> Don't have an account ? <Link to='/register'>Register</Link></p>
       </div>
 
     </div>

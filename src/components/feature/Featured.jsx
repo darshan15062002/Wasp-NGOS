@@ -13,7 +13,7 @@ function Featured() {
                     <div className="search">
                         <div className="searchInput">
                             <img src={search} alt="" />
-                            <input type="text" placeholder='Search Topic Here.....' />
+                            <input type="text" placeholder="What service are you looking for today ?" />
                         </div>
                         <button>Search</button>
                     </div>

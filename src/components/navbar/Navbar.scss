@@ -7,99 +7,114 @@
     transition: 0.5s all ease;
     position: sticky;
     top: 0;
-    z-index: 100;
     &.active{
         background-color: white;
         color: black;
         
     }
 
+  .background {
+    background: black;
+  }
 
-    .container {
-        position: relative;
-        width: 1000px;
+  .container {
+    position: relative;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    .logo {
+      font-family: serif;
+      font-size: 34px;
+      font-weight: 900;
+
+      .logo-img {
+        width: 34px;
+        height: 34px;
+        justify-content: center;
+        padding-right: 20px;
+        cursor: pointer;
+      }
+
+      .text {
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .dot {
+        color: #a5d7e8;
+      }
+    }
+
+    .links {
+      display: flex;
+      font-family: "Montserrat", sans-serif;
+      gap: 24px;
+      align-items: center;
+      cursor: pointer;
+      font-weight: bold;
+
+      span {
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .user {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-padding: 10px 0;
-        .logo {
-            font-family: serif;
-            font-size: 34px;
-            font-weight: 900;
-            
-
-            .dot {
-                color: #A5D7E8;
-            }
+        gap: 10px;
+        position: relative;
+        
+        img {
+          height: 30px;
+          border-radius: 50%;
         }
-
-        .links {
-            display: flex;
-            font-family: 'Montserrat', sans-serif;
-            gap: 24px;
-            font-weight: 500;
-            align-items: center;
-            
-            span{
-                font-family: 'Montserrat', sans-serif;
-                font-size: 12px;
-                font-weight: 500;
-            }
-           .user{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            position: relative;
-            img{
-                height: 30px;
-                border-radius: 50%;
-            }
-            span{
-                font-family: 'Montserrat', sans-serif;
-                font-size: 12px;
-                font-weight: 500;
-            }
-            .options{
-                position: absolute;
-                top: 50px;
-                right: 0;
-                padding: 20px;
-                background-color: white;
-                border-radius: 10px;
-                border: 1px solid lightgray;
-                display: flex;
-                flex-direction: column;
-                color: gray;
-                width: 150px;
-                gap: 10px;
-            }
-           }
-            button{
-                color:green;
-                padding:10px 20px;
-                border-radius: 5px;
-                border: 1px solid green;
-                cursor:pointer;
-                font-family: 'Montserrat', sans-serif;               background-color: transparent;
-               &:hover{
-                background-color:rgb(255, 255, 255) ;
-                border: 1px solid rgb(5, 54, 5);
-               }
-            }
+        span {
+          font-family: "Montserrat", sans-serif;
+          font-size: 12px;
+          font-weight: 500;
         }
+        .options {
+          position: absolute;
+          top: 50px;
+          right: 0;
+          padding: 20px;
+          background-color: white;
+          border-radius: 10px;
+          border: 1px solid lightgray;
+          display: flex;
+          flex-direction: column;
+          color: gray;
+          width: 150px;
+          gap: 10px;
+        }
+      }
+      button {
+        color: green;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: 1px solid green;
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif;
+        background-color: transparent;
+        &:hover {
+          background-color: rgb(255, 255, 255);
+          border: 1px solid rgb(5, 54, 5);
+        }
+      }
     }
-    hr{
-        width: 100%;
-        height: 0;
-        border: 0.5px solid lightgray;
-    }
-    .menu{
-       width: 1000px;
-       padding: 10px 0px;
-       display: flex;
-       justify-content: space-between;
-color: gray;
-font-weight: 300;
-
-    }
+  }
+  hr {
+    width: 100%;
+    height: 0;
+    border: 0.5px solid lightgray;
+  }
+  .menu {
+    width: 1000px;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+    font-weight: 300;
+  }
 }
