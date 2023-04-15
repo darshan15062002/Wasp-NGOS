@@ -73,7 +73,7 @@ const cardData = [{
 
 
 function Home() {
-
+  const navigate = useNavigation()
   return (
     <div className="home">
       <Featured />
@@ -83,7 +83,7 @@ function Home() {
 
           {
             cardData.map((item, index) => (
-              <div className="card" >
+              <div className="card" onClick={() => navigate('/chating')}>
 
                 <img className="image" src={item.image} alt="darshan" />
 
