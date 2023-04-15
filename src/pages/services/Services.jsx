@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import '../services/Services.scss'
-
+import edit from '../../img/pencil.png'
 import { db, storage } from '../../firebase'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { Timestamp, arrayUnion, doc, onSnapshot, setDoc } from 'firebase/firestore'
@@ -17,7 +17,7 @@ const Services = () => {
     useEffect(() => {
         const getServices = () => {
             const unsub = onSnapshot(doc(db, "services", currentUser.uid), (doc) => {
-                setServices(doc.data().service)
+                setServices(doc.data().messages)
             });
 
             return () => {
@@ -53,7 +53,7 @@ const Services = () => {
                     try {
                         //create user on firestore
                         await setDoc(doc(db, "services", currentUser.uid), {
-                            service: arrayUnion({
+                            messages: arrayUnion({
                                 id: uuid(),
                                 userId: currentUser.uid,
                                 profileURL: currentUser.photoURL,
@@ -116,13 +116,19 @@ const Services = () => {
                     <div className="service-list">
                         {services?.map((item, index) => (
 
-                            <h1>{item.topic}</h1>
-                            // <div key={item.description} className="service-card">
-                            //     <img src={item.photoURL} alt='' />
-                            //     <h3>{item.topic}</h3>
-                            //     <p>{item.description}</p>
-                            //     <span> ₹{item.price} USD</span>
-                            // </div>
+
+                            <div key={item.description} className="service-card">
+                                <img src={item.photoURL} alt='' />
+                                <div className="">
+                                    <h3>{item.topic}</h3>
+                                    <p>{item.description}</p>
+                                    <span> ₹{item.price} USD</span>
+                                </div>
+                                <div className="edit">
+                                    <img src={edit} alt="" />
+                                </div>
+                            </div>
+
                         ))}
                     </div>
                 </div>

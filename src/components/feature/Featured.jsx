@@ -14,7 +14,7 @@ function Featured() {
                     <div className="search">
                         <div className="searchInput">
                             <img src={search} alt="" />
-                            <input type="text" placeholder="What service are you looking for today ?" value={query} onChange={(e) => setQuery(e.target.value)} />
+                            <input type="text" style={{ width: '300px' }} placeholder="What service are you looking for today ?" value={query} onChange={(e) => setQuery(e.target.value)} />
                         </div>
                         <button>Search</button>
                     </div>

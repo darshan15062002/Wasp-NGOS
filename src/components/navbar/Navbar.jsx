@@ -15,7 +15,7 @@ function Navbar() {
     );
     const { currentUser } = useContext(AuthContext)
 
-
+    console.log(currentUser);
 
 
     const handleManu = async () => {
@@ -74,13 +74,14 @@ function Navbar() {
                     <span>About</span>
 
                     {currentUser ? (
-                        <div className="user" onClick={() => setMenu(!menu)}>
-                            <img src="https://pps.whatsapp.net/v/t61.24694-24/312248467_237228451996318_6104864477789700214_n.jpg?ccb=11-4&oh=01_AdT4fStubsKRAFw9jqcRWHmpA9ag1AivY82IfY_JldtLng&oe=6427F3BD" alt="" />
-                            <span>{currentUser?.userName}</span>
+                        <div className="user" onClick={handleManu}>
+                            <img src={currentUser.photoURL} alt="" />
+                            <span>{currentUser?.displayName
+                            }</span>
                             {menu && <div className="options">
                                 {
                                     user?.isVolunteer && (
-                                        <Link className="link" to="/service">
+                                        <Link className="link" to="/services">
                                             Create Service
                                         </Link>
                                     )
