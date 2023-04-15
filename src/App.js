@@ -16,7 +16,6 @@ import Home from './pages/home/Home';
 import Chating from './pages/chating/Chating.jsx'
 import { useContext } from 'react'
 import { AuthContext } from './context/AuthContext'
-import Services from './pages/services/Services'
 
 
 
@@ -52,10 +51,10 @@ const router = createBrowserRouter([
         path: "/chating",
         element: <ProtectedRoute><Chating /></ProtectedRoute>,
       },
-      {
-        path: "/service",
-        element: <Services />,
-      },
+      // {
+      //   path: "/myGigs",
+      //   element: <MyGigs />,
+      // },
       // {
       //   path: "/orders",
       //   element: <Orders />,

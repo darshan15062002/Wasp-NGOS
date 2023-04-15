@@ -69,13 +69,14 @@ function Navbar() {
                 </div>
                 <div className="links">
                     <span>Home</span>
+                    <span>About</span>
                     <span>Contact</span>
                     <span>About</span>
 
                     {currentUser ? (
-                        <div className="user" onClick={handleManu}>
-                            <img src={currentUser?.photoURL} alt="" />
-                            <span>{currentUser?.displayName}</span>
+                        <div className="user" onClick={() => setMenu(!menu)}>
+                            <img src="https://pps.whatsapp.net/v/t61.24694-24/312248467_237228451996318_6104864477789700214_n.jpg?ccb=11-4&oh=01_AdT4fStubsKRAFw9jqcRWHmpA9ag1AivY82IfY_JldtLng&oe=6427F3BD" alt="" />
+                            <span>{currentUser?.userName}</span>
                             {menu && <div className="options">
                                 {
                                     user?.isVolunteer && (
@@ -92,11 +93,10 @@ function Navbar() {
 
                                 </p>
                             </div>}
-                        </div>
-                    ) : <>
+                        </div>) : <>     <Link to='/register' className='link'>Sign Up</Link></>}
 
-                        <Link to='/register' className='link'>Sign Up</Link></>
-                    }
+
+
                 </div>
             </div>
 
