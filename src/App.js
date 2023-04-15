@@ -4,6 +4,7 @@ import '../src/styles.scss'
 import Login from './pages/Login'
 import Register from './pages/Register'
 
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -15,6 +16,7 @@ import Home from './pages/home/Home';
 import Chating from './pages/chating/Chating.jsx'
 import { useContext } from 'react'
 import { AuthContext } from './context/AuthContext'
+import Services from './pages/services/Services'
 
 
 
@@ -50,10 +52,10 @@ const router = createBrowserRouter([
         path: "/chating",
         element: <ProtectedRoute><Chating /></ProtectedRoute>,
       },
-      // {
-      //   path: "/myGigs",
-      //   element: <MyGigs />,
-      // },
+      {
+        path: "/service",
+        element: <Services />,
+      },
       // {
       //   path: "/orders",
       //   element: <Orders />,
@@ -81,6 +83,10 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+  // {
+  //   path: "/volunteer-register",
+  //   element: <Volunteer />,
+  // },
   {
     path: "/login",
     element: <Login />,

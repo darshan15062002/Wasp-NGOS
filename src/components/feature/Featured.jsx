@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Featured.scss";
 import search from '../../img/search.png'
 
 function Featured() {
+    const [query, setQuery] = useState('')
     return (
         <div className="featured">
             <div className="container">
@@ -13,7 +14,7 @@ function Featured() {
                     <div className="search">
                         <div className="searchInput">
                             <img src={search} alt="" />
-                            <input type="text" placeholder="What service are you looking for today ?" />
+                            <input type="text" placeholder="What service are you looking for today ?" value={query} onChange={(e) => setQuery(e.target.value)} />
                         </div>
                         <button>Search</button>
                     </div>
