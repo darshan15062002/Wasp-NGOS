@@ -1,9 +1,10 @@
 .featured {
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
-    background-color: #A5D7E8;
+    background-color: whitesmoke;
     color: rgb(0, 0, 0);
+    position: absolute;
   
     .container {
       width: 100vw;
@@ -27,16 +28,20 @@
   
         .search {
           background-color: white;
-          border-radius: 5px;
+          border-radius: 10px;
           display: flex;
           align-items: center;
           justify-content: space-between;
           overflow: hidden;
+          -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+          box-shadow: -5px 10px 8px 1px rgba(201, 201, 201, 0.47);
+          border: 0.5px solid lightgray;
   
           .searchInput {
             display: flex;
             align-items: center;
             gap: 10px;
+            
             img {
               width: 20px;
               height: 20px;
@@ -71,16 +76,18 @@
   
           span {
             width: max-content;
+           
           }
   
           button {
             width: max-content;
-            color: white;
-            border: 1px solid white;
+            color: black;
+            border: 1px solid black;
             padding: 5px 10px;
             border-radius: 20px;
             background-color: transparent;
             font-size: 14px;
+            cursor: pointer;
           }
         }
       }
