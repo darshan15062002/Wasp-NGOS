@@ -16,6 +16,7 @@
     padding: 20px 60px;
     text-align: center;
     gap: 12px;
+    z-index: 0;
     border-radius: 12px;
     .logo {
       font-weight: bold;
@@ -83,10 +84,10 @@
     // @include mobile{
     //     width: 90%;
     // height: 80%;
-    // }
+    }
     .sidebar{
         flex:1;
-        
+        width: 100px;
         background: #363B4E;
         position: relative;
         .navbar{
@@ -96,7 +97,7 @@
             color: #b7bedc;
             // @include mobile{
             //     font-size: 12px;
-            // }
+            }
             justify-content: space-between;
             align-items: center;
             .logo{
@@ -346,5 +347,4 @@
             }
         }
     }
-    }
-}
+    

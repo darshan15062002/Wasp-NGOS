@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.scss";
 import Featured from "../../components/feature/Featured";
-import { Link, useNavigation } from "react-router-dom";
+import { Link } from "react-router-dom";
 const cardData = [{
   name: 'Darshan',
   pimg: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
@@ -73,7 +73,7 @@ const cardData = [{
 
 
 function Home() {
-  const navigate = useNavigation()
+
   return (
     <div className="home">
       <Featured />
@@ -83,7 +83,7 @@ function Home() {
 
           {
             cardData.map((item, index) => (
-              <div className="card" onClick={() => navigate('/chating')}>
+              <div className="card" >
 
                 <img className="image" src={item.image} alt="darshan" />
 

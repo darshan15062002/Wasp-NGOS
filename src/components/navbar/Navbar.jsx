@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import logo from "../../img/gallary.png"
 
 import './Navbar.scss'
+import { signOut } from 'firebase/auth'
+import { auth } from '../../firebase'
 function Navbar() {
 
     const [menu, setMenu] = useState(false)
