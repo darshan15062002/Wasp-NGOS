@@ -7,9 +7,15 @@ import Register from './pages/Register'
 import {
   createBrowserRouter,
   RouterProvider,
-  Outlet
+  Outlet,
+  Navigate
 } from "react-router-dom";
 import Home from './pages/home/Home';
+
+import Chating from './pages/chating/Chating.jsx'
+import { useContext } from 'react'
+import { AuthContext } from './context/AuthContext'
+
 
 
 const Layout = () => {
@@ -22,6 +28,15 @@ const Layout = () => {
   )
 }
 
+
+const ProtectedRoute = ({ children }) => {
+  const { currentUser } = useContext(AuthContext)
+  if (!currentUser) {
+    return <Navigate to='/' />
+  }
+  return children
+}
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,10 +46,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      // {
-      //   path: "/gigs",
-      //   element: <Gigs />,
-      // },
+      {
+        path: "/chating",
+        element: <ProtectedRoute><Chating /></ProtectedRoute>,
+      },
       // {
       //   path: "/myGigs",
       //   element: <MyGigs />,
@@ -75,6 +90,7 @@ const router = createBrowserRouter([
 
 
 function App() {
+
 
   return (
     <div>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 import './Navbar.scss'
+import { auth } from '../../firebase'
+import { signOut } from 'firebase/auth'
 function Navbar() {
 
     const [menu, setMenu] = useState(false)
@@ -50,7 +52,8 @@ function Navbar() {
                                     Messages
                                 </p>
                                 <p className="link" to="/">
-                                    Logout
+                                    <button onClick={() => signOut(auth)}>Logout</button>
+
                                 </p>
                             </div>}
                         </div>
