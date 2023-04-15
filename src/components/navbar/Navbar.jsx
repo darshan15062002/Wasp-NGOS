@@ -1,6 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import logo from "../../img/gallary.png"
 
 import './Navbar.scss'
+
+export const navLinks = [
+    {
+      id: "home",
+      title: "Home",
+    },
+    {
+      id: "store",
+      title: "Store",
+    },
+    {
+      id: "contact",
+      title: "Contact",
+    },
+  ];
+
 function Navbar() {
 
     const [menu, setMenu] = useState(false)
@@ -8,25 +25,43 @@ function Navbar() {
 
     const currentUser = {
         id: 1,
-        userName: 'darshan',
+        userName: 'Darshan',
         isSeller: true,
     }
 
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+          const scrollTop = window.scrollY;
+          if (scrollTop > 100) {
+            setScrolled(true);
+          } else {
+            setScrolled(false);
+          }
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+    
+        return () => window.removeEventListener("scroll", handleScroll);
+      }, []);
+    
+
     return (
 
-        <div className={"navbar"}>
+        <div className={`navbar ${scrolled ? "transparent" : "background" }`}>
             <div className="container">
                 <div className="logo">
+                    <img src={logo} alt="" className='logo-img' />
                     {/* <Link to="/" className='link'> */}
                     <span className='text'>Tutors</span>
                     {/* </Link> */}
-                    <span className='dot' >.</span>
+                    <span className='dot' ></span>
                 </div>
                 <div className="links">
                     <span>Home</span>
-                    <span>Contact Us</span>
+                    <span>Contact</span>
                     <span>About</span>
-                    <span>Sign in</span>
                     {!currentUser?.isSeller && <span>Become a Seller</span>}
                     {!currentUser && <button>Join</button>}
                     {currentUser && (

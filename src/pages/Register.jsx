@@ -68,18 +68,18 @@ const Register = () => {
         <span className="logo">Chat</span>
         <span className="title">Register</span>
         <form onSubmit={handleSubmit}>
-          <input type="text" placeholder='name' />
-          <input type="email" placeholder='email' />
-          <input type="password" placeholder='password' />
+          <input type="text" placeholder='Name' />
+          <input type="email" placeholder='Email' />
+          <input type="password" placeholder='Password' />
           <input type="file" id='file' />
           <label htmlFor="file" style={{ display: 'flex', alignItems: 'center', gap: '5px' }} ><img src={Add} style={{ height: '20px' }} alt="" />
-            <span style={{ fontSize: '10px', color: '#4F3B78', paddingLeft: '5px' }}>Add an Avatar
+            <span style={{ fontSize: '14px', color: '#4F3B78', paddingLeft: '5px' }}>Add an Avatar !
             </span></label>
           <button>Sign Up</button>
           {loading && "Uploading and compressing the image please wait..."}
-          {err && <span>Somthing went wrong</span>}
+          {err && <span>Something went wrong !</span>}
         </form>
-        <p>Yo do have an acoount ?<Link to='/login'>Login</Link></p>
+        <p>Do have an account ? <Link to='/login'>Login</Link></p>
       </div>
 
     </div>
