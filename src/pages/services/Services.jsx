@@ -3,7 +3,7 @@ import '../services/Services.scss'
 import edit from '../../img/pencil.png'
 import { db, storage } from '../../firebase'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-import { Timestamp, arrayUnion, doc, onSnapshot, setDoc } from 'firebase/firestore'
+import { Timestamp, arrayUnion, doc, onSnapshot, setDoc, updateDoc } from 'firebase/firestore'
 import { AuthContext } from '../../context/AuthContext'
 import { v4 as uuid } from 'uuid'
 const Services = () => {
@@ -52,7 +52,7 @@ const Services = () => {
                 getDownloadURL(storageRef).then(async (downloadURL) => {
                     try {
                         //create user on firestore
-                        await setDoc(doc(db, "services", currentUser.uid), {
+                        await updateDoc(doc(db, "services", currentUser.uid), {
                             messages: arrayUnion({
                                 id: uuid(),
                                 userId: currentUser.uid,
@@ -63,8 +63,11 @@ const Services = () => {
                                 price,
                                 date: Timestamp.now(),
                                 photoURL: downloadURL,
-                            })
-                        });
+                            },)
+                        }).then((data) => {
+                            alert('Services is added succesfully')
+                            e.target.reset();
+                        })
 
                         //create empty user chats on firestore
 

@@ -1,6 +1,17 @@
 .formContainer{
     .right{
+        height: 70vh;
           .service-list{
+            height: 90%;
+            scroll-behavior: smooth;
+            overflow-x: scroll;
+            flex-wrap: nowrap;
+            -webkit-overflow-scrolling: touch;
+            margin: 20px 0;
+            overflow: scroll;
+            &::-webkit-scrollbar{
+                display: none;
+            }
          
           width: 100%;
           .service-card{
@@ -13,10 +24,15 @@
             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
             padding: 5px;
             margin: 10px;
+            position: relative;
             .edit{
+               position: absolute;
+               right: 5px;
+               top:5px;
                img{
                 height: 25px;
                 width: 25px;
+                
                }
             }
             img{
