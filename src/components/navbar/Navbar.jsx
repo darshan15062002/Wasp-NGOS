@@ -68,10 +68,16 @@ function Navbar() {
                     <span className='dot' ></span>
                 </div>
                 <div className="links">
-                    <span>Home</span>
-                    <span>About</span>
-                    <span>Contact</span>
-                    <span>About</span>
+                    <Link className="link" to="/">
+                        <span>Home</span>
+                    </Link>
+                    <Link className="link" to="/about">
+                        <span>About</span>
+                    </Link>
+                    <Link className="link" to="/contact">
+                        <span>Contact</span>
+                    </Link>
+
 
                     {currentUser ? (
                         <div className="user" onClick={handleManu}>
@@ -94,7 +100,7 @@ function Navbar() {
 
                                 </p>
                             </div>}
-                        </div>) : <>     <Link to='/register' className='link'>Sign Up</Link></>}
+                        </div>) : <>     <Link to='/register' className='links'>Register</Link></>}
 
 
 

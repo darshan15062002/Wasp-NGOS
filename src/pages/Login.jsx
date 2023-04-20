@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <div className='formContainer'>
       <div className="formWrapper">
-        <span className="logo">Chat</span>
+        <span className="logo">Tutors</span>
         <span className="title">Login</span>
         <form onSubmit={handleSubmit} >
 

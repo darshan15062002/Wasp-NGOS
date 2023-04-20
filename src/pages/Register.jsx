@@ -58,6 +58,10 @@ const Register = () => {
             //create empty user chats on firestore
             await setDoc(doc(db, "userChats", res.user.uid), {});
             navigate("/");
+
+            // ischeck && await setDoc(doc(db, "services", res.user.uid), {});
+            navigate("/");
+
           } catch (err) {
             console.log(err);
             setErr(true);
@@ -78,7 +82,7 @@ const Register = () => {
   return (
     <div className='formContainer'>
       <div className="formWrapper">
-        <span className="logo">Chat</span>
+        <span className="logo">Tutors</span>
         <span className="title">Register</span>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder='Name' />

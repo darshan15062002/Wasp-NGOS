@@ -53,7 +53,9 @@
       font-family: "Montserrat", sans-serif;
       gap: 24px;
       align-items: center;
+      color: white;
       cursor: pointer;
+      text-decoration: none;
       font-weight: bold;
 
       span {
@@ -70,6 +72,7 @@
         img {
           height: 30px;
           border-radius: 50%;
+         width: 30px;
         }
         span {
           font-family: "Montserrat", sans-serif;

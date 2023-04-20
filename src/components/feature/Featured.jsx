@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Featured.scss";
+import featured from '../../img/feature.png'
 import search from '../../img/search.png'
 
-function Featured({ query, setQuery, handleSubmit }) {
+function Featured({
+    handleSubmit,
+    querys,
+    setQuery
+}) {
+
+
+
 
     return (
         <div className="featured">
@@ -14,20 +22,20 @@ function Featured({ query, setQuery, handleSubmit }) {
                     <div className="search">
                         <div className="searchInput">
                             <img src={search} alt="" />
-                            <input type="text" style={{ width: '300px' }} placeholder="What service are you looking for today ?" value={query} onChange={(e) => setQuery(e.target.value)} />
+                            <input type="text" style={{ width: '300px' }} placeholder="What service are you looking for today ?" value={querys} onChange={(e) => setQuery(e.target.value)} />
                         </div>
                         <button onClick={handleSubmit}>Search</button>
                     </div>
                     <div className="popular">
                         <span>Popular:</span>
-                        <button>Web Design</button>
-                        <button>WordPress</button>
+                        <button>JavaScript</button>
+                        <button>Python</button>
                         <button>Logo Design</button>
                         <button>AI Services</button>
                     </div>
                 </div>
                 <div className="right">
-                    <img src="./img/man.png" alt="" />
+                    <img src={featured} alt="" />
                 </div>
             </div>
         </div>

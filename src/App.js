@@ -17,6 +17,8 @@ import Chating from './pages/chating/Chating.jsx'
 import { useContext } from 'react'
 import { AuthContext } from './context/AuthContext'
 import Services from './pages/services/Services'
+import About from './pages/about/About'
+import Contact from './pages/contact/Contact'
 
 
 
@@ -34,7 +36,7 @@ const Layout = () => {
 const ProtectedRoute = ({ children }) => {
   const { currentUser } = useContext(AuthContext)
   if (!currentUser) {
-    return <Navigate to='/' />
+    return <Navigate to='/login' />
   }
   return children
 }
@@ -56,14 +58,14 @@ const router = createBrowserRouter([
         path: "/services",
         element: <Services />,
       },
-      // {
-      //   path: "/orders",
-      //   element: <Orders />,
-      // },
-      // {
-      //   path: "/messages",
-      //   element: <Messages />,
-      // },
+      {
+        path: "/about",
+        element: <About />,
+      }, {
+        path: "/contact",
+        element: <Contact />,
+      },
+
       // {
       //   path: "/message/:id",
       //   element: <Message />,

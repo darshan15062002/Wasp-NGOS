@@ -1,22 +1,30 @@
 .featured {
-    height: 90vh;
+    height: 100vh;
+   margin-top: -20px;
     display: flex;
     justify-content: center;
     color: rgb(0, 0, 0);
+    padding: 10px 20px;
   
     .container {
-      width: 100vw;
+     
       display: flex;
       align-items: center;
-      padding: 0 10%;
+      padding: 5% 10%;
+
+      
+
   
       .left {
+        
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 30px;
+        flex:1;
   
         h1 {
-          font-size: 50px;
+          font-size: 45px;
   
           span {
             font-style: italic;
@@ -92,6 +100,9 @@
   
       .right {
         height: 100%;
+        bottom: 0;
+        
+        
         img {
           height: 100%;
           object-fit: contain;

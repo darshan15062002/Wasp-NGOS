@@ -1,7 +1,15 @@
 .home {
   .search_Result{
+    margin-top: 50px;
     height: 100vh;
+    display: flex;
+    justify-content: center;
     background-color: white;
+    flex-direction: column;
+    align-items: center;
+   h1{
+    border-bottom: 2px solid #1dbf73;
+   }
 
     .container {
       height: 100%;
@@ -9,11 +17,11 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      gap: 5px;
+      gap: 20px;
       justify-content: space-between;
 
       .card {
-      
+   
         height: 300px;
         width: 200px;
         z-index: 2;
@@ -21,8 +29,11 @@ margin-bottom:30px ;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        
+ 
+        text-align: left;
         background-color: whitesmoke;
+
         transition: 0.5s all ease;
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
         box-shadow: -5px 10px 8px 1px rgba(201, 201, 201, 0.47);
@@ -58,18 +69,23 @@ margin-bottom:30px ;
           display: flex;
           flex-direction: column;
           gap: 5px;
-          padding: 0 20px;
+   
+          padding: 10px 15px;
           .info_name {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-weight: bolder;
+font-family: sans-serif;
+font-size: 12px;
+
+            gap: 5px;
+            
             justify-content: flex-start;
 
             img {
-              height: 30px;
-              width: 30px;
+              height: 25px;
+              width: 25px;
               border-radius: 100%;
+              border:1px solid black;
             }
             h3 {
               font-weight: 600;
@@ -81,15 +97,25 @@ margin-bottom:30px ;
             font-weight: lighter;
           }
         }
-        .btn {
-          background-color: #1dbf73;
-          border-radius: 5px;
-          color: white;
-          font-size: 16px;
-          border: 1px solid lightgrey;
-          padding: 6px;
-          text-decoration: none;
+        .button{
+          display: flex;
+          justify-content: center;
+          
+          align-items: center;
+      
+          .btn {
+            background-color: #1dbf73;
+            border-radius: 5px;
+            padding: 0 15px;
+            color: white;
+            font-size: 16px;
+            border: 1px solid lightgrey;
+            padding: 6px;
+            width: fit-content;
+            text-decoration: none;
+          }
         }
+        
       }
     }
   }

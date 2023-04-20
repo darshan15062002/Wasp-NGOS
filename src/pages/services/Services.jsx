@@ -1,12 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import '../services/Services.scss'
 import edit from '../../img/pencil.png'
 import { db, storage } from '../../firebase'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-import { Timestamp, arrayUnion, doc, onSnapshot, setDoc, updateDoc } from 'firebase/firestore'
+import { Timestamp, arrayUnion, doc, getDoc, onSnapshot, setDoc, updateDoc } from 'firebase/firestore'
 import { AuthContext } from '../../context/AuthContext'
 import { v4 as uuid } from 'uuid'
 const Services = () => {
+    const formRef = useRef(null);
     const { currentUser } = useContext(AuthContext)
     const [img, setImg] = useState()
     const [services, setServices] = useState([])
@@ -17,7 +18,7 @@ const Services = () => {
     useEffect(() => {
         const getServices = () => {
             const unsub = onSnapshot(doc(db, "services", currentUser.uid), (doc) => {
-                setServices(doc.data().messages)
+                setServices(doc.data()?.services)
             });
 
             return () => {
@@ -28,6 +29,20 @@ const Services = () => {
 
     }, [])
 
+
+    // const handleEdit = async (topic, description, photoURL, price, userId) => {
+
+
+    //     formRef.current.topic.value = topic;
+    //     formRef.current.description.value = description;
+    //     formRef.current.price.value = price;
+
+
+
+
+
+
+    // }
 
 
 
@@ -51,9 +66,16 @@ const Services = () => {
             await uploadBytesResumable(storageRef, file).then(() => {
                 getDownloadURL(storageRef).then(async (downloadURL) => {
                     try {
+                        const res = await getDoc(doc(db, "services", currentUser.uid));
+
+                        if (!res.exists()) {
+                            // create chat in chat collection
+                            await setDoc(doc(db, "services", currentUser.uid), { services: [] });
+                        }
+
                         //create user on firestore
                         await updateDoc(doc(db, "services", currentUser.uid), {
-                            messages: arrayUnion({
+                            services: arrayUnion({
                                 id: uuid(),
                                 userId: currentUser.uid,
                                 profileURL: currentUser.photoURL,
@@ -94,11 +116,11 @@ const Services = () => {
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <span className="logo">Tutors</span>
                     <span className="title">Create Service</span>
-                    <form onSubmit={handleSubmit}>
-                        <input type="text" placeholder='Topic' />
-                        <input type="textarea" placeholder='Description' />
-                        <input type="number" placeholder='Price' />
-                        <input type="file" id='file' onChange={(e) => setImg(e.target.files[0])} />
+                    <form onSubmit={handleSubmit} ref={formRef}>
+                        <input type="text" name='topic' placeholder='Topic' />
+                        <input type="textarea" name='description' placeholder='Description' />
+                        <input type="number" name='price' placeholder='Price' />
+                        <input type="file" name='file' id='file' onChange={(e) => setImg(e.target.files[0])} />
                         <label htmlFor="file" style={{ display: 'flex', alignItems: 'center', gap: '5px' }} ><img src={img ? URL.createObjectURL(img) : 'https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg'} style={{ height: '120px', width: '100%' }} alt="" />
                         </label>
 
@@ -122,11 +144,12 @@ const Services = () => {
 
                             <div key={item.description} className="service-card">
                                 <img src={item.photoURL} alt='' />
-                                <div className="">
+                                <div className="card-info">
                                     <h3>{item.topic}</h3>
                                     <p>{item.description}</p>
-                                    <span> ₹{item.price} USD</span>
+                                    <span> ₹{item.price} INR</span>
                                 </div>
+                                {/* <div className="edit" onClick={() => handleEdit(item.topic, item.description, item.photoURL, item.price, item.userId)}> */}
                                 <div className="edit">
                                     <img src={edit} alt="" />
                                 </div>
