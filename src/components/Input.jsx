@@ -41,7 +41,7 @@ const Input = () => {
       })
     }
     else {
-      await (doc(db, 'chats', data.chatId), {
+      await updateDoc(doc(db, 'chats', data.chatId), {
         messages: arrayUnion({
           id: uuid(),
           text,

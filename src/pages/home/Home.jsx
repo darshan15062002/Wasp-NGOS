@@ -122,12 +122,13 @@ function Home() {
                 <h3>{item?.topic}</h3>
 
                 <p>{item?.description}</p>
+                <div className="button">
+                  <Link to={"/chating"} className="btn">
+                    Message
+                  </Link>
+                </div>
               </div>
-              <div className="button">
-                <Link to={"/chating"} className="btn">
-                  Message
-                </Link>
-              </div>
+
 
             </div>
           ))
